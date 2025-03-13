@@ -3,6 +3,7 @@
 #1.입금, 2.출금, 3.영수증 보기, 4.종료 -> 글자를 입력받을지(입금...출금.....) / 숫자로 입력받을지 (1,2,3....)
 # 숫자로 원하는 기능을 입력할수있게 만들어주세요. 그리고 사용자가 입력한 기능은 num 변수에 담아주세요.
 # deposit_amount: 
+# withdraw_amout:
 
 # 기본 통장 금액
 balance = 3000
@@ -32,7 +33,14 @@ while True:
         
             
     if num =="2":
-        pass
+        withdraw_amount = input("출금할 금액을 입력해주세요 : ")
+        if withdraw_amount.isdigit() and int(withdraw_amount) > 0:
+            withdraw_amount = min(balance, int(withdraw_amount))
+            balance -= withdraw_amount #balance = balance-withdraw_amout
+            print(f"고객님이 출금한 금액은{withdraw_amount}원이고고. 현재 잔액은 {balance}원입니다.")
+        else:
+            print("정신차리고, 제대로된 숫자형태로 출금액을 작성해줘")
+
     if num =="3":
         pass
     if num =="4":
